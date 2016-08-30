@@ -69,6 +69,23 @@ def suggest_another():
                 main()
         else:
                 print "Alrighty then, captain!"
+                
+def drink_phrase(suggested_drink):
+        
+        if len(suggested_drink) > 1: 
+        
+                final_item = suggested_drink.pop()
+        
+                phrase = ""
+        
+                for item in suggested_drink: 
+                        phrase += item + ", "
+                print "Nice choice, Captain! 1 " + cocktail_name() + " with a " + phrase[:-2] + " & a " + final_item \
+                + " especially mixed by your favourite Pirate Bartender coming right up, arghhh!"
+        
+        else: 
+                print "Too easy. 1 x " + cocktail_name() + " with a straight " + suggested_drink[0] + " coming right up!"
+
 
 def main():
         '''a function to run mixed_drink function, with arguments from preferences \
@@ -78,13 +95,8 @@ def main():
         
         suggested_drink = mixed_drink(preferences)
         
-        suggested_drink_sentence = ""
+        drink_phrase(suggested_drink)
         
-        for item in suggested_drink: 
-                suggested_drink_sentence += item + ", "
-        print "...Nice choice, Captain. 1 " + cocktail_name() + " with a " + suggested_drink_sentence \
-        + "poured over ice and specially mixed by your favourite Pirate, coming right up!"
-
         suggest_another()
 
 if __name__ == '__main__':
