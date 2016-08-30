@@ -18,7 +18,7 @@ ingredients = {
     
 names = {
         "descriptives": ["jumping", "whirling", "fluffy", "cranky", "porky"], 
-        "nouns": ["lion", "bunny", "ship", "pirate", "holly", "dolphin"],
+        "nouns": ["lion", "whale shark", "ship", "pirate", "ant", "dolphin", "walrus"],
         }
 
 responses = {}
@@ -50,6 +50,7 @@ def mixed_drink(preferences):
 
 #mixed_drink(preferences)
 
+
 def cocktail_name():
         '''a function to return a cocktail name based on a randomly selected descriptive word and a noun'''
         name = ""
@@ -59,18 +60,35 @@ def cocktail_name():
                 name = random.choice(first_name) + ' ' + random.choice(last_name)
      
         return name
+ 
+       
+def suggest_another():
+        '''a function to check if the customer would like another drink'''
+        another_drink_response = raw_input("Would you like another drink? :")
+        if str.lower(another_drink_response) == 'yes' or str.lower(another_drink_response) == 'y':
+                main()
+        else:
+                print "Alrighty then, captain!"
 
 def main():
         '''a function to run mixed_drink function, with arguments from preferences \
         function to return a list of ingredients that will be included in the drink. \
-        the function will be executed when file is exected on command line.'''
+        after any drink is served, a function will be called to ask if the customer wants another drink. \
+        the main function will be executed when file is exected on command line.'''
         
         suggested_drink = mixed_drink(preferences)
+        
         suggested_drink_sentence = ""
+        
         for item in suggested_drink: 
                 suggested_drink_sentence += item + ", "
         print "...Nice choice, Captain. 1 " + cocktail_name() + " with a " + suggested_drink_sentence \
         + "poured over ice and specially mixed by your favourite Pirate, coming right up!"
 
+        suggest_another()
+
 if __name__ == '__main__':
     main()
+
+
+
