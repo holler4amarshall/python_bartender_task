@@ -19,6 +19,7 @@ ingredients = {
 responses = {}
 
 def preferences():
+        '''a function to return user response to questions as a dictionary containing taste:preference'''
 
         for question in questions:
                 preference = raw_input((questions)[question] + ": ")
@@ -32,6 +33,8 @@ def preferences():
 
 
 def mixed_drink(preferences):
+        ''' a function to return the ingredients for a drink based on preference provided by separate function'''
+        
         drink = []
         for preference, answer in preferences().items():
                 if answer == 'True':
@@ -43,11 +46,19 @@ def mixed_drink(preferences):
 #mixed_drink(preferences)
 
 def main():
+        '''a function to run mixed_drink function, with arguments from preferences \
+        function to return a list of ingredients that will be included in the drink. \
+        the function will be executed when file is exected on command line.'''
+        
         suggested_drink = mixed_drink(preferences)
         suggested_drink_sentence = ""
         for item in suggested_drink: 
                 suggested_drink_sentence += item + ", "
-        print "...Nice choice, Captain. 1 special drink with a " + suggested_drink_sentence + "poured over ice and specially mixed by your favourite Pirate, coming right up!"
+        print "...Nice choice, Captain. 1 special drink with a " + suggested_drink_sentence \
+        + "poured over ice and specially mixed by your favourite Pirate, coming right up!"
 
 if __name__ == '__main__':
     main()
+
+
+
